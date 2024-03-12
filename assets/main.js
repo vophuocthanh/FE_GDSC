@@ -1,28 +1,7 @@
-/*
- * Create a list that holds all of your cards
- */
-// let cards = [
-//   "diamond",
-//   "paper-plane-o",
-//   "anchor",
-//   "bolt",
-//   "cube",
-//   "anchor",
-//   "leaf",
-//   "bicycle",
-//   "diamond",
-//   "bomb",
-//   "leaf",
-//   "bomb",
-//   "bolt",
-//   "bicycle",
-//   "paper-plane-o",
-//   "cube",
-// ];
 let cards = [];
+let num_cards = 9;
 
-// Generate 8 unique random numbers between 1 and 11
-while (cards.length < 8) {
+while (cards.length < num_cards) {
   let randomNumber = Math.floor(Math.random() * 11) + 1;
   if (!cards.includes(randomNumber)) {
     cards.push(randomNumber);
@@ -67,9 +46,9 @@ function newGame() {
   for (let i = 0; i < cards.length; i++) {
     deck.insertAdjacentHTML(
       "afterbegin",
-      '<li class="card"><img class="hidden" src = "img/' +
+      '<div class = " card " ><img class="hidden" src = "/assets/img/' +
         cards[i] +
-        '.jpg "></img></li>'
+        '.jpg "></img></div>'
     );
   }
 }
@@ -114,19 +93,13 @@ function addMove(card) {
   }
 }
 
-function endGame() {
-  if (movesCount <= 14) {
-    starsCount = 5;
-  } else if (movesCount <= 19) {
-    starsCount = 4;
-  } else if (movesCount <= 22) {
-    starsCount = 3;
-  } else {
-    starsCount = 2;
-  }
-  console.log(matches);
+function calculateScore() {
+  let score = parseInt(1000 / parseInt(movesCount)) + (minute * 60 + second);
+  return score;
+}
 
-  if (matches === 1) {
+function endGame() {
+  if (matches === num_cards) {
     modal.style.display = "block";
 
     modalText.innerHTML =
@@ -136,8 +109,8 @@ function endGame() {
       second +
       "seconds <br> Moves Taken: " +
       movesCount +
-      " <br> Stars: " +
-      starsCount +
+      " <br> Score: " +
+      calculateScore() +
       " <br> You can do better!";
   }
 }
