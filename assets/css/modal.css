@@ -1,0 +1,44 @@
+/*
+* Styles for the modal
+*/
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+}
+
+.modalContent {
+  width: 80%;
+  border: solid 3px grey;
+  border-radius: 20px;
+  margin: 10% auto;
+  background-color: white;
+  height: 60%;
+  text-align: center;
+  padding: 30px 20px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.playAgain {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.playAgain:hover {
+  background-color: #45a049;
+}
