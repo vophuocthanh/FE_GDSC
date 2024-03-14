@@ -1,5 +1,5 @@
 let cards = [];
-let num_cards = 9;
+let num_cards = 6;
 
 while (cards.length < num_cards) {
   let randomNumber = Math.floor(Math.random() * 11) + 1;
@@ -46,7 +46,7 @@ function newGame() {
   for (let i = 0; i < cards.length; i++) {
     deck.insertAdjacentHTML(
       "afterbegin",
-      '<div class = " card " ><img class="hidden" src = "/assets/img/' +
+      '<div class = " card " ><img class="hidden" src = "./assets/img/' +
         cards[i] +
         '.jpg "></img></div>'
     );
@@ -100,10 +100,10 @@ function calculateScore() {
 
 function endGame() {
   if (matches === num_cards) {
-    modal.style.display = "block";
+    modal.style.display = "flex";
 
     modalText.innerHTML =
-      "<h2>Congratulations! You made it</h2> <br> Time taken: " +
+      "<h2>Congratulations!<br /> You made it</h2> <br> Time taken: " +
       minute +
       "mintes " +
       second +
