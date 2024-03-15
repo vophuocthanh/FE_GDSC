@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Matching Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link
+      rel="stylesheet prefetch"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="https://fonts.googleapis.com/css?family=Coda"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/modal.css" />
+    <link rel="stylesheet" href="./assets/css/cards.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Matching Game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="" />
-  <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
-  <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <link rel="stylesheet" href="./assets/css/modal.css" />
-  <link rel="stylesheet" href="./assets/css/cards.css" />
-</head>
-
-<body>
-  <div class="modal">
-    <div class="modalContent">
-      <p class="modalText"></p>
-      <button class="playAgain">Play Again!</button>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="head">
-      <h1>Matching Game</h1>
-      <p>Your score will be calculated based on moves taken and playing time!</p>
-      <div class="score-info">
-        <section class="score-panel">
-          <div class="title-moves"><span class="moves">3</span> Moves</div>
-
-          <span class="timer"></span>
-
-          <div class="restart">
-            <i class="fa fa-repeat"></i>
-          </div>
-        </section>
+  <body>
+    <div class="modal">
+      <div class="modalContent">
+        <p class="modalText"></p>
+        <button class="playAgain">Play Again!</button>
       </div>
     </div>
 
-    <div class="deck"></div>
+    <div class="container">
+      <div class="head">
+        <h1>
+          Matching <span style="color: #4285f4">G</span
+          ><span style="color: #ea4335">a</span
+          ><span style="color: #34a853">m</span
+          ><span style="color: #fbbc05">e</span>
+        </h1>
+        <p>
+          Your score will be calculated based on moves taken and playing time!
+        </p>
+        <div class="score-info">
+          <section class="score-panel">
+            <div class="title-moves"><span class="moves">3</span> Moves</div>
 
-    <br />
-  </div>
+            <span class="timer"></span>
 
-  <script src="./assets/main.js"></script>
-</body>
+            <div class="restart">
+              <i class="fa fa-repeat"></i>
+            </div>
+          </section>
+        </div>
+      </div>
 
+      <div class="deck"></div>
+
+      <br />
+    </div>
+
+    <script src="./assets/main.js"></script>
+  </body>
 </html>

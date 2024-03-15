@@ -50,6 +50,10 @@ h1 {
   font-size: 40px;
 }
 
+.head span {
+  margin: 0;
+}
+
 .head p {
   text-align: center;
   width: 80%;
