@@ -46,9 +46,9 @@ function newGame() {
   for (let i = 0; i < cards.length; i++) {
     deck.insertAdjacentHTML(
       "afterbegin",
-      '<div class = " card " ><img class="hidden" src = "./assets/img/' +
+      '<div class = " card "><img class="hidden" src = "./assets/img/' +
         cards[i] +
-        '.jpg "></img></div>'
+        '.png "></img></div>'
     );
   }
 }
@@ -94,7 +94,7 @@ function addMove(card) {
 }
 
 function calculateScore() {
-  let score = parseInt(1000 / parseInt(movesCount)) + (minute * 60 + second);
+  let score = parseInt(10000 / parseInt(movesCount) + (minute * 60 + second));
   return score;
 }
 
@@ -103,7 +103,7 @@ function endGame() {
     modal.style.display = "flex";
 
     modalText.innerHTML =
-      "<h2>Congratulations!<br /> You made it</h2> <br> Time taken: " +
+      "<h2>Congratulations!<br /> You made it</h2> <br> Time taken: <br>" +
       minute +
       "minutes " +
       second +

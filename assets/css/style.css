@@ -35,6 +35,10 @@ h1 {
 .hidden {
   display: none;
 }
+
+img {
+  /* mix-blend-mode: multiply; */
+}
 /*
 * Styles for the Score Panel
 */
@@ -76,7 +80,7 @@ h1 {
   width: 86%;
   border-radius: 8px;
   margin: 0 10px;
-  box-shadow: 1px 3px 14px -4px rgba(0,0,0,0.75);
+  box-shadow: 1px 3px 14px -4px rgba(0, 0, 0, 0.75);
 }
 
 .title-move {

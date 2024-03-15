@@ -26,20 +26,24 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 1px 3px 8px -5px rgba(0,0,0,0.75);
+  box-shadow: 1px 3px 8px -5px rgba(0, 0, 0, 0.75);
+}
+
+.deck .card.open.show {
+  background: white;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.deck .card.match {
+  background: #89eda570;
+  box-shadow: 0 0 10px 1px #26964687;
 }
 
 .card img {
-  background-color: #ffffffd6;
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: 80%;
   box-sizing: border-box;
   object-fit: contain;
   border-radius: 8px;
-}
-
-.card.match img {
-  cursor: default;
-  background: #02a1ccbf;
 }
