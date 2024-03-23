@@ -51,6 +51,8 @@ function newGame() {
         '.png "></img></div>'
     );
   }
+
+  handleCanvasProcessing();
 }
 
 function flipCard(card) {

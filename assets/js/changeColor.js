@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+function handleCanvasProcessing() {
   const cards = document.querySelectorAll(".card");
 
   cards.forEach(function (card) {
@@ -49,4 +49,4 @@ document.addEventListener("DOMContentLoaded", function () {
       img.src = canvas.toDataURL();
     });
   });
-});
+}
