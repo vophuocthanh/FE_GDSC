@@ -21,7 +21,7 @@ const restart = document.querySelector(".restart");
 const deck = document.querySelector(".deck");
 
 let interval;
-let second = 0;
+let second = 1;
 let minute = 0;
 let timeStart = false;
 
@@ -128,7 +128,6 @@ restart.addEventListener("click", function () {
 if (!movesWait) {
   deck.addEventListener("click", function (e) {
     let card = e.target;
-    console.log(card);
 
     if (e.target !== e.currentTarget) {
       if (!timeStart) {
@@ -160,14 +159,15 @@ if (!movesWait) {
 
 function resetTimer() {
   clearInterval(interval);
-  second = 0;
+  second = 1;
   minute = 0;
 }
 
 function startTimer() {
   interval = setInterval(function () {
-    timer.textContent = minute + " minutes " + second + " seconds ";
     second++;
+    console.log(second);
+    timer.textContent = minute + " minutes " + second + " seconds ";
     if (second === 60) {
       minute++;
       second = 0;
