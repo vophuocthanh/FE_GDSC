@@ -159,7 +159,7 @@ if (!movesWait) {
 
 function resetTimer() {
   clearInterval(interval);
-  second = 1;
+  second = 0;
   minute = 0;
 }
 
