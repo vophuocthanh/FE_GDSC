@@ -36,7 +36,7 @@ function newGame() {
   deck.innerHTML = "";
   timer.style.display = "none";
   timeStart = false;
-  timer.textContent = minute + " Minutes " + second + " Seconds";
+  timer.textContent = minute + " minutes " + second + " seconds";
   shuffle(cards);
   cards_select = [];
   matches = 0;
