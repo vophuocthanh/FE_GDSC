@@ -31,6 +31,8 @@ let movesCount = moves.textContent;
 let starsCount = 3;
 let movesWait = false;
 
+let processingClick = false;
+
 function newGame() {
   resetTimer();
   deck.innerHTML = "";
@@ -127,32 +129,40 @@ restart.addEventListener("click", function () {
 
 if (!movesWait) {
   deck.addEventListener("click", function (e) {
-    let card = e.target;
+    if (!processingClick) {
+      processingClick = true;
 
-    if (e.target !== e.currentTarget) {
-      if (!timeStart) {
-        startTimer();
-        timeStart = true;
-        timer.style.display = "inline-block";
-      }
-      if (!card.classList.contains("open")) {
-        if (cards_select.length < 2) {
-          flipCard(card);
-          cards_select.push(card);
+      let card = e.target;
+
+      if (e.target !== e.currentTarget) {
+        if (!timeStart) {
+          startTimer();
+          timeStart = true;
+          timer.style.display = "inline-block";
         }
-        if (cards_select.length === 2) {
-          addMove(card);
-          if (
-            cards_select[0].querySelector("img").src ===
-            cards_select[1].querySelector("img").src
-          ) {
-            cardMatch();
-          } else {
-            cardMisMatch();
+        if (!card.classList.contains("open")) {
+          if (cards_select.length < 2) {
+            flipCard(card);
+            cards_select.push(card);
           }
+          if (cards_select.length === 2) {
+            addMove(card);
+            if (
+              cards_select[0].querySelector("img").src ===
+              cards_select[1].querySelector("img").src
+            ) {
+              cardMatch();
+            } else {
+              cardMisMatch();
+            }
+          }
+          endGame();
         }
-        endGame();
       }
+
+      setTimeout(function () {
+        processingClick = false;
+      }, 500);
     }
   });
 }
