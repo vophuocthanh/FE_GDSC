@@ -50,12 +50,22 @@ function newGame() {
       "afterbegin",
       '<div class = " card "><img class="hidden" src = "./assets/img/' +
         cards[i] +
-        '.png "></img></div>'
+        '.png " name="' +
+        cards[i] +
+        '"></img></div>'
     );
   }
 
   handleCanvasProcessing();
 }
+
+playAgain.addEventListener("click", function () {
+  location.reload();
+});
+
+restart.addEventListener("click", function () {
+  newGame();
+});
 
 function flipCard(card) {
   card.classList.add("open", "show");
@@ -97,6 +107,52 @@ function addMove(card) {
   }
 }
 
+if (!movesWait) {
+  deck.addEventListener("click", function (e) {
+    if (!processingClick) {
+      processingClick = true;
+
+      let card = e.target;
+
+      if (e.target !== e.currentTarget && card.classList.contains("card")) {
+        if (!timeStart) {
+          startTimer();
+          timeStart = true;
+          timer.style.display = "inline-block";
+        }
+        if (!card.classList.contains("open")) {
+          if (cards_select.length < 2) {
+            flipCard(card);
+
+            if (!cards_select.includes(card)) {
+              cards_select.push(card);
+            }
+          }
+          if (cards_select.length === 2) {
+            if (cards_select[0] === cards_select[1]) {
+              return;
+            }
+            addMove(card);
+            if (
+              cards_select[0].querySelector("img").name ===
+              cards_select[1].querySelector("img").name
+            ) {
+              cardMatch();
+            } else {
+              cardMisMatch();
+            }
+          }
+          endGame();
+        }
+      }
+
+      setTimeout(function () {
+        processingClick = false;
+      }, 500);
+    }
+  });
+}
+
 function calculateScore() {
   let score = parseInt(10000 / parseInt(movesCount) + (minute * 60 + second));
   return score;
@@ -117,54 +173,6 @@ function endGame() {
       calculateScore() +
       " <br> You can do better!";
   }
-}
-
-playAgain.addEventListener("click", function () {
-  location.reload();
-});
-
-restart.addEventListener("click", function () {
-  newGame();
-});
-
-if (!movesWait) {
-  deck.addEventListener("click", function (e) {
-    if (!processingClick) {
-      processingClick = true;
-
-      let card = e.target;
-
-      if (e.target !== e.currentTarget) {
-        if (!timeStart) {
-          startTimer();
-          timeStart = true;
-          timer.style.display = "inline-block";
-        }
-        if (!card.classList.contains("open")) {
-          if (cards_select.length < 2) {
-            flipCard(card);
-            cards_select.push(card);
-          }
-          if (cards_select.length === 2) {
-            addMove(card);
-            if (
-              cards_select[0].querySelector("img").src ===
-              cards_select[1].querySelector("img").src
-            ) {
-              cardMatch();
-            } else {
-              cardMisMatch();
-            }
-          }
-          endGame();
-        }
-      }
-
-      setTimeout(function () {
-        processingClick = false;
-      }, 500);
-    }
-  });
 }
 
 function resetTimer() {
