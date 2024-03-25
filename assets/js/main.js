@@ -148,7 +148,7 @@ if (!movesWait) {
 
       setTimeout(function () {
         processingClick = false;
-      }, 500);
+      }, 100);
     }
   });
 }
@@ -184,7 +184,6 @@ function resetTimer() {
 function startTimer() {
   interval = setInterval(function () {
     second++;
-    console.log(second);
     timer.textContent = minute + " minutes " + second + " seconds ";
     if (second === 60) {
       minute++;
